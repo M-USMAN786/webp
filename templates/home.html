@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block style %}
+<style>
+    .banner
+    {
+        background-image:url({% static "images/windows_banner.gif" %})
+    }
+</style>
+<link rel='stylesheet' href="{% static 'css/home.css' %}?{% now "U" %}">
+{% endblock style %}
+{% block search %}
+ <form method="get" class="search_form" action="/search">
+    <input type="text" name="search" id="search" placeholder="search">
+    <button type="submit" class="search_button">Search</button>
+ </form>
+{% endblock search %}
+{% block template %}
+<div class="response">{{response}}</div>
+<div class="template_head">
+    {% for n in NewUploadData  %}
+    <div class="template">
+        <img class="img" width=50px height=50px src="media/{{n.file_img}}"></img>
+        <div class="name template_text">Name : {{n.file_name}}</div>
+        <div class="version template_text">Version : {{n.file_ver}}</div>
+        <div class="source template_text">Source : {{n.file_source}}</div>
+        <div class="file_size template_text">File Size : {{n.file_size}}</div>
+        <div class="required_storage template_text">Required Storage : {{n.file_required_size}}</div>
+        <div class="category template_text">category : {{n.file_category}}</div>
+        <a class='Download' href='{{n.file_link}}'>Download</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock template %}
+{% block paginator %}
+<div class="paginator_head">
+    {% if NewUploadData.has_previous %}
+    <div class="previous_options">
+        <a class="page_links" href="/?page=1" >First</a>
+        <a class="page_links" href="/?page={{NewUploadData.previous_page_number}}" >Previous</a>
+    </div>
+    {% endif %}
+    {% if NewUploadData.has_next %}
+    <div class="next_options">
+        <a href="/?page={{last_page}}" class="page_links">Last</a>
+        <a href="/?page={{NewUploadData.next_page_number}}" class="page_links">Next</a>
+    {% endif %}
+    </div>
+</div>
+{% endblock paginator %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static '/css/android.css' %}?{% now "U" %}">
+<style>
+    .banner
+    {
+        background-image:url({% static "/images/android_banner.gif" %});
+    }
+</style>
+{% endblock style %}
+{% block search %}
+ <form method="get" class="search_form" action="/search">
+    <input type="text" name="search" id="search" placeholder="search">
+    <button type="submit" class="search_button">Search</button>
+ </form>
+{% endblock search %}
+{% block template %}
+<div class="template_head">
+    {% for i in NewUploadData %}
+    <div class="template">
+        <img src="media/{{i.app_img}}" alt="none" width="80px" height="80px">
+        <div class="name template_items">{{i.app_name}}</div>
+        <div class="ver template_items">{{i.app_ver}}</div>
+        <div class="category template_items">{{i.app_category}}</div>
+        <div class="source template_items">{{i.app_source}}</div>
+        <div class="file_size template_items">{{i.app_size}}</div>
+        <a class="Download template_items" href="{{i.app_link}}">Download</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock template %}
+{% block paginator %}
+<div class="paginator_head">
+    {% if NewUploadData.has_previous %}
+    <div class="previous_options">
+        <a class="page_links" href="/android_apps?page=1" >First</a>
+        <a class="page_links" href="/android_apps?page={{NewUploadData.previous_page_number}}" >Previous</a>
+    </div>
+    {% endif %}
+    {% if NewUploadData.has_next %}
+    <div class="next_options">
+        <a href="/android_apps?page={{last_page}}" class="page_links">Last</a>
+        <a href="/android_apps?page={{NewUploadData.next_page_number}}" class="page_links">Next</a>
+    {% endif %}
+    </div>
+</div>
+{% endblock paginator %}

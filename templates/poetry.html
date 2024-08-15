@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+{% block style %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static "css/poetry.css" %}?{% now "U" %}">
+<style>
+    @font-face {
+  font-family: urdu;
+  src: url('{% static "/fonts/Urdu.ttf" %}')  format('truetype');
+}
+    .banner
+    {
+        background-image: url({% static "/images/poetry_background_landscape.jpg" %});
+        width:100vw;
+        height: 100vh;
+        border-radius:0px;
+    }
+</style>
+{% endblock style %}
+{% block search %}
+ <form method="get" class="search_form" action="/poetry/search">
+    <input type="text" name="search" id="search" placeholder="search">
+    <button type="submit" class="search_button">Search</button>
+ </form>
+{% endblock search %}
+{% block template %}
+<div class="template_head">
+  <div class="response">{{response}}</div>
+  {% for l in poetry_data %}
+    <div class="template">
+     <div class="poetry template_items">{{l.poetry}}</div>
+     <div class="poet_name template_items">{{l.poet_name}}</div>
+     <hr>
+     <hr>
+    </div>
+  {% endfor %}
+</div>
+{% endblock template %}
+{% block paginator %}
+<div class="paginator_head">
+    {% if poetry_data.has_previous %}
+    <div class="previous_options">
+        <a class="page_links" href="/poetry?page=1" >First</a>
+        <a class="page_links" href="/poetry?page={{poetry_data.previous_page_number}}" >Previous</a>
+    </div>
+    {% endif %}
+    {% if poetry_data.has_next %}
+    <div class="next_options">
+        <a href="poetry?page={{last_page}}" class="page_links">Last</a>
+        <a href="poetry?page={{poetry_data.next_page_number}}" class="page_links">Next</a>
+    {% endif %}
+    </div>
+</div>
+{% endblock paginator %}

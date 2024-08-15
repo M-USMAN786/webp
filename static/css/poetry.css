@@ -1,0 +1,179 @@
+.template
+{
+    color: white;
+    font-size: 40px;
+    white-space: pre-line;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.template_head
+{
+    position: relative;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 30vmax;
+    z-index: -9;
+    flex-direction: column;
+}
+.template_items
+{
+    font-family: "urdu","sans-sarif";
+    font-size: 23px;
+}
+.banner
+{
+    filter: brightness(0.3);
+    position: fixed;
+}
+.poet_name
+{
+    width: 50%;
+}
+hr
+{
+    width: 640px;
+    margin-top: 5px;
+}
+.response
+{
+    font-size: 3vmax;
+    color: white;
+    margin-left: 30px;
+}
+
+.paginator_head
+{
+    display: flex;
+    width: 100vw;
+    margin-top: 20px;
+}
+.next_options
+{
+    background-color: rgb(255, 255, 255);
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    height: 60px;
+    width: 150px;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    left: calc(100vw - 150px);
+    display: flex;
+    position: relative;
+    transition-duration: 0.3s;
+    
+}
+.previous_options
+{
+    background-color: rgb(255, 255, 255);
+    height: 60px;
+    width: 150px;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    position: relative;
+    transition-duration: 0.3s;
+}
+.previous_options:hover
+{
+    box-shadow: 0 0 30px 2px skyblue;
+}
+.next_options:hover
+{
+    box-shadow: 0 0 30px 2px skyblue;
+}
+.page_links
+{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+}
+.search_form
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.search_results
+{
+    color: aliceblue;
+    font-size: 40px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+#search
+{   
+    width: 46vw;
+    height: 4vmax;
+    z-index: 5;
+    position: absolute;
+    top: 15vmax;
+    font-size: 2vmax;
+    border-radius: 46vw;
+    text-align: center;
+    border: none;
+    outline: none;
+    z-index: -1;
+}
+.search_button
+{
+    width: 110px;
+    height: 3vmax;
+    position: absolute;
+    top: 22vmax;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 10px;
+    transition: 0.5s;
+    font-size: 15px;
+    z-index: -1;
+}
+.search_button:hover
+{
+    color: rgb(255, 255, 255);
+    background-color: black;
+    box-shadow: 0 0 16px 5px yellow;
+}
+#search
+{   
+    width: 46vw;
+    height: 4vmax;
+    z-index: 5;
+    position: absolute;
+    top: 15vmax;
+    font-size: 2vmax;
+    border-radius: 46vw;
+    text-align: center;
+    border: none;
+    outline: none;
+    z-index: -1;
+}
+.search_button
+{
+    width: 110px;
+    height: 3vmax;
+    position: absolute;
+    top: 22vmax;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 10px;
+    transition: 0.5s;
+    font-size: 15px;
+    z-index: -1;
+}
+.search_button:hover
+{
+    color: rgb(255, 255, 255);
+    background-color: black;
+    box-shadow: 0 0 16px 5px yellow;
+}
