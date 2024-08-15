@@ -12,12 +12,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-import environ
-
-# Initialize environment variables
-env = environ.Env()
-environ.Env.read_env()  # This reads from the .env file
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,7 +26,7 @@ SECRET_KEY = 'django-insecure-w0s6i-)$q!9e#z+!^#%8oq8v5-!jva3ol%%w^&g09bb1hb(1fh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -83,18 +77,11 @@ WSGI_APPLICATION = 'training11.wsgi.app'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.postgresql',
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": env("POSTGRES_DATABASE"),
-        "USER": env('POSTGRES_USER'),
-        "PASSWORD": env('POSTGRES_PASSWORD'),
-        "HOST": env("POSTGRES_HOST"),
-        "URL": env("POSTGRES_URL"),
-        "PORT": "5432"
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',  # The database engine
+        'NAME': BASE_DIR / 'db.sqlite3',         # Path to the database file
     }
 }
+
 
 
 # Password validation
