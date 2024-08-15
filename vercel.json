@@ -9,7 +9,7 @@
   ],
   "routes": [
     {
-      "src": "static/(.*)",
+      "src": "/(.*)",
       "dest": "training11/wsgi.py"
     }
   ]
