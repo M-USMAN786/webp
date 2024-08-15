@@ -1,19 +1,29 @@
 {
+  "version": 2,
   "builds": [
     {
-      "src": "training11/wsgi.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "runtime": "python3.12.5" }
+      "src": "manage.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "staticfiles/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/static/(.*)",
-      "dest": "/static/$1"
+      "dest": "/staticfiles/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "training11/wsgi.py"
+      "dest": "manage.py"
     }
-  ]
+  ],
+  "env": {
+    "DJANGO_SETTINGS_MODULE": "training11.settings",
+    "SECRET_KEY": "@vercel/secret-key"
+  },
+  "buildCommand": "pip install -r requirements.txt && python manage.py collectstatic --noinput",
+  "outputDirectory": "staticfiles"
 }
