@@ -123,6 +123,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Where static files will b
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # Additional static file locations
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 MEDIA_URLS='/media/'
 MEDIA_ROOT=BASE_DIR /'media'
