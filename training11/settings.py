@@ -119,13 +119,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICSTORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_DIRS =os.path.join(BASE_DIR,'static'),
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles_build', 'static')
 
 MEDIA_URLS='/media/'
 MEDIA_ROOT=BASE_DIR /'media'
@@ -134,4 +129,4 @@ MEDIA_ROOT=BASE_DIR /'media'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CSRF_TRUSTED_ORIGINS= [""]
+# CSRF_TRUSTED_ORIGINS= [""]
